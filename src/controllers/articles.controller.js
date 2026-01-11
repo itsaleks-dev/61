@@ -1,14 +1,18 @@
 function getArticles(req, res) {
-  res.send("Get articles route");
-}
-
-function postArticles(req, res) {
-  res.send("Post articles route");
+  const articles = [
+    { id: 101, title: "Node Basics" },
+    { id: 102, title: "Express MVC" },
+  ];
+  res.render("articles.ejs", { articles });
 }
 
 function getArticleById(req, res) {
   const { articleId } = req.params;
-  res.send(`Get article by Id route: ${articleId}`);
+  res.render("article-details.ejs", { articleId });
+}
+
+function postArticles(req, res) {
+  res.send("Post articles route");
 }
 
 function putArticleById(req, res) {

@@ -1,18 +1,14 @@
 const { Router } = require("express");
-
 const articlesController = require("../controllers/articles.controller");
-
 const checkArticleAccess = require("../middlewares/articleAccess.middleware");
 
 const router = Router();
 
-router.use(checkArticleAccess);
-
 router.get("/", articlesController.getArticles);
-router.post("/", articlesController.postArticles);
-
 router.get("/:articleId", articlesController.getArticleById);
-router.put("/:articleId", articlesController.putArticleById);
-router.delete("/:articleId", articlesController.deleteArticleById);
+
+router.post("/", checkArticleAccess, articlesController.postArticles);
+router.put("/:articleId", checkArticleAccess, articlesController.putArticleById);
+router.delete("/:articleId", checkArticleAccess, articlesController.deleteArticleById);
 
 module.exports = router;

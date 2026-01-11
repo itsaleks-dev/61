@@ -1,14 +1,18 @@
 function getUsers(req, res) {
-  res.send("Get users route");
-}
-
-function postUsers(req, res) {
-  res.send("Post users route");
+  const users = [
+    { id: 1, username: "alex" },
+    { id: 2, username: "john" },
+  ];
+  res.render("users.pug", { users });
 }
 
 function getUserById(req, res) {
   const { userId } = req.params;
-  res.send(`Get user by Id route: ${userId}`);
+  res.render("user-details.pug", { userId });
+}
+
+function postUsers(req, res) {
+  res.send("Post users route");
 }
 
 function putUserById(req, res) {
