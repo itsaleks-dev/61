@@ -5,9 +5,13 @@ All responses are returned in text format.
 
 # Technologies
 
-- Node.js
-- Express.js
-- nodemon (dev)
+    •	Node.js
+    •	Express.js
+    •	PUG
+    •	EJS
+    •	cookie-parser
+    •	jsonwebtoken
+    •	nodemon (dev)
 
 Installation
 
@@ -40,6 +44,23 @@ Articles
 • GET /articles/:articleId → Get article by Id route: {articleId}
 • PUT /articles/:articleId → Put article by Id route: {articleId}
 • DELETE /articles/:articleId → Delete article by Id route: {articleId}
+
+Cookies & Authentication
+
+• POST /theme → Save selected site theme in cookies
+• GET /theme → Get current saved theme
+
+• POST /register → Register user and generate JWT token
+• POST /login → Login user and generate JWT token
+• GET /secret → Protected route доступний тільки з валідним JWT cookie
+
+JWT tokens are stored in httpOnly cookies.
+
+Static Files
+
+• Static files are served from /public
+• A global favicon.ico is available for all PUG and EJS pages
+• CSS styles are applied to all HTML pages
 
 Middleware
 
